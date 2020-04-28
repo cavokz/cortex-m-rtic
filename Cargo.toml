@@ -81,6 +81,11 @@ version = "0.5.2"
 trybuild = "1"
 
 [features]
+feature_s = []
+feature_l1 = []
+feature_l2 = []
+feature_e1 = []
+feature_e2 = []
 # used for testing this crate; do not use in applications
 __v7 =[]
 __min_r1_43 =[]
