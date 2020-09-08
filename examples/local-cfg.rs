@@ -20,7 +20,7 @@ use cortex_m_semihosting::debug;
 use lm3s6965::Interrupt;
 use panic_semihosting as _;
 
-#[rtfm::app(device = lm3s6965)]
+#[rtic::app(device = lm3s6965)]
 const APP: () = {
     struct Resources {
         // An early resource
@@ -53,8 +53,8 @@ const APP: () = {
 
     #[init]
     fn init(_: init::Context) -> init::LateResources {
-        rtfm::pend(Interrupt::UART0);
-        rtfm::pend(Interrupt::UART1);
+        rtic::pend(Interrupt::UART0);
+        rtic::pend(Interrupt::UART1);
         init::LateResources {
             #[cfg(feature = "feature_e2")]
             e2: 2,

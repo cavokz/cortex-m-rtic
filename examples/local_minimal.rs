@@ -7,7 +7,7 @@
 use cortex_m_semihosting::{debug, hprintln};
 use panic_semihosting as _;
 
-#[rtfm::app(device = lm3s6965)]
+#[rtic::app(device = lm3s6965)]
 const APP: () = {
     struct Resources {
         // A local (move), late resource

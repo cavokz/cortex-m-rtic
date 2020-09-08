@@ -1,7 +1,7 @@
 use syn::parse;
 use std::collections::HashMap;
 use proc_macro2::Ident;
-use rtfm_syntax::{
+use rtic_syntax::{
     analyze::Analysis,
     ast::App,
 };
@@ -45,9 +45,9 @@ pub fn app(app: &App, _analysis: &Analysis) -> parse::Result<()> {
     let all_tasks: Vec<(Task, Idents, Priority)> = app
         .idles
         .iter()
-        .map(|(core, ht)| {
+        .map(|ht| {
             (
-                format!("Idle (core {})", core),
+                "idle".to_string(),
                 ht.args.resources.iter().map(|(v, _)| v).collect::<Vec<_>>(),
                 0
 
