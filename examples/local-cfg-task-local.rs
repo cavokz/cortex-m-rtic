@@ -5,8 +5,8 @@
 #![no_main]
 #![no_std]
 
-use cortex_m_semihosting::hprintln;
 use cortex_m_semihosting::debug;
+use cortex_m_semihosting::hprintln;
 use lm3s6965::Interrupt;
 use panic_semihosting as _;
 
@@ -32,7 +32,7 @@ const APP: () = {
             #[cfg(feature = "feature_l2")]
             l2: 2,
             #[cfg(not(feature = "feature_l2"))]
-            l2: 5
+            l2: 5,
         }
     }
 

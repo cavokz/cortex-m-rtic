@@ -5,18 +5,15 @@
 #![no_main]
 #![no_std]
 
-#[cfg(
-    any(
-        feature = "feature_s",
-        feature = "feature_e1",
-        feature = "feature_e2",
-        feature = "feature_l1",
-        feature = "feature_l2"
-        )
-    )
-]
-use cortex_m_semihosting::hprintln;
 use cortex_m_semihosting::debug;
+#[cfg(any(
+    feature = "feature_s",
+    feature = "feature_e1",
+    feature = "feature_e2",
+    feature = "feature_l1",
+    feature = "feature_l2"
+))]
+use cortex_m_semihosting::hprintln;
 use lm3s6965::Interrupt;
 use panic_semihosting as _;
 
@@ -59,7 +56,7 @@ const APP: () = {
             #[cfg(feature = "feature_e2")]
             e2: 2,
             #[cfg(feature = "feature_l2")]
-            l2: 2
+            l2: 2,
         }
     }
 
