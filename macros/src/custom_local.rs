@@ -1,10 +1,7 @@
-use syn::parse;
-use std::collections::HashMap;
 use proc_macro2::Ident;
-use rtic_syntax::{
-    analyze::Analysis,
-    ast::App,
-};
+use rtic_syntax::{analyze::Analysis, ast::App};
+use std::collections::HashMap;
+use syn::parse;
 use syn::Error;
 
 type Idents<'a> = Vec<&'a Ident>;
@@ -49,22 +46,21 @@ pub fn app(app: &App, _analysis: &Analysis) -> parse::Result<()> {
             (
                 "idle".to_string(),
                 ht.args.resources.iter().map(|(v, _)| v).collect::<Vec<_>>(),
-                0
-
+                0,
             )
         })
         .chain(app.software_tasks.iter().map(|(name, ht)| {
             (
                 name.to_string(),
                 ht.args.resources.iter().map(|(v, _)| v).collect::<Vec<_>>(),
-                ht.args.priority
+                ht.args.priority,
             )
         }))
         .chain(app.hardware_tasks.iter().map(|(name, ht)| {
             (
                 name.to_string(),
                 ht.args.resources.iter().map(|(v, _)| v).collect::<Vec<_>>(),
-                ht.args.priority
+                ht.args.priority,
             )
         }))
         .collect();
@@ -153,7 +149,7 @@ pub fn app(app: &App, _analysis: &Analysis) -> parse::Result<()> {
             ),
         ));
     }
-    
+
     // collect errors
     if error.is_empty() {
         Ok(())
