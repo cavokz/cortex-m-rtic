@@ -81,6 +81,7 @@ version = "0.5.2"
 trybuild = "1"
 
 [features]
+nightly = ["cortex-m-rtic-macros/nightly"]
 feature_s = []
 feature_l1 = []
 feature_l2 = []

@@ -17,6 +17,9 @@ version = "0.5.2"
 [lib]
 proc-macro = true
 
+[features]
+nightly = []
+
 [dependencies]
 proc-macro2 = "1"
 quote = "1"

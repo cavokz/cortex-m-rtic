@@ -4,6 +4,8 @@ use std::collections::HashMap;
 use syn::parse;
 use syn::Error;
 
+use proc_macro_error::{abort_call_site, emit_warning, proc_macro_error};
+
 type Idents<'a> = Vec<&'a Ident>;
 
 // Assign an `extern` interrupt to each priority level
@@ -77,6 +79,9 @@ pub fn app(app: &App, _analysis: &Analysis) -> parse::Result<()> {
             }
         }
         if used.len() > 1 {
+            // let's emit a warning
+            emit_warning!(task_local_id.span(), "--- this is a warning, just to test");
+
             error.push(Error::new(
                 task_local_id.span(),
                 format!(
