@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use syn::parse;
 use syn::Error;
 
-use proc_macro_error::{abort_call_site, emit_warning, proc_macro_error};
+use proc_macro_error::emit_warning;
 
 type Idents<'a> = Vec<&'a Ident>;
 

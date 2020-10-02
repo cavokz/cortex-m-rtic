@@ -1,10 +1,5 @@
-// #![deny(warnings)]
-#![cfg_attr(
-    feature = "nightly",
-    feature(proc_macro_diagnostic, proc_macro_span, proc_macro_def_site)
-)]
-
-use proc_macro_error::{abort_call_site, emit_warning, proc_macro_error};
+#![deny(warnings)]
+use proc_macro_error::proc_macro_error;
 
 extern crate proc_macro;
 

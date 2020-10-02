@@ -24,6 +24,7 @@ nightly = []
 proc-macro2 = "1"
 quote = "1"
 syn = "1"
+proc-macro-error = "1.0"
 #rtic-syntax = { git = "https://github.com/rtic-rs/rtic-syntax", branch = "master", version = "0.4.1" }
 rtic-syntax = { git = "https://github.com/rtic-rs/rtic-syntax", branch = "task_local", version = "0.4.1" }
 
